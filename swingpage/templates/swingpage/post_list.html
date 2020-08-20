@@ -9,12 +9,17 @@
 {% if user.is_authenticated %}
 	<p>{{ user.username }}</p>
 	<a href="{% url 'logout' %}">로그아웃</a>
+    {#새로운 글쓰기 버튼#}
+    <button onclick="location.href='/swingpage/create/'" >New Post</button>
 {% else %}
 	<a href="{% url 'signup' %}">회원가입</a>
 	<a href="{% url 'login' %}">로그인</a>
 {% endif %}
 	
 <h1>swing.py page</h1>
+
+
+
 
 {% for p in object_list %}
 <h3> {{p.title}} </h3>
