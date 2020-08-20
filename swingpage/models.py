@@ -7,7 +7,7 @@ class Post(models.Model):
     title = models.CharField(max_length=30)
     content = models.TextField()
 
-    #head_image = models.ImageField(upload_to='swingpage/%Y/%m/%d/', blank=True)
+    head_image = models.ImageField(upload_to='swingpage/%Y/%m/%d/', blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

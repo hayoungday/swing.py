@@ -22,8 +22,9 @@
 
 
 {% for p in object_list %}
+<p><img src="{{ p.head_image.url }}"></p>
 <h3> {{p.title}} </h3>
-<h4> {{p.created}}} by {{p.author}}</h4>
+<h4> {{p.created}} by {{p.author}}</h4>
 <p> {{p.content}} </p>
 <a href ="{{ p.get_absolute_url }}" id="read-more-post-{{ p.pk }}">Read More</a>
 {% endfor %}

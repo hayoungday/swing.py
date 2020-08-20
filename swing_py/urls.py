@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import account.views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('swingpage/', include('swingpage.urls')),
@@ -24,3 +26,5 @@ urlpatterns = [
     path('signup/', account.views.signup, name='signup'),
     path('logout/', account.views.logout, name='logout'),
     ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
