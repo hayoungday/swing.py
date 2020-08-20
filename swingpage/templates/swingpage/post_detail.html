@@ -7,9 +7,14 @@
 <body>
 
 {% if request.user == object.author %}
-    <button type="button" onclick="location.href='{{ object.get_upgrade_url }}'">EDIT</button>
+    <button type="button" onclick="location.href='{{ object.get_update_url }}'">EDIT</button>
 {% endif %}
 
+{% if object.head_image %}
+    <p><img src="{{ object.head_image.url }}"></p>
+        {% else %}
+        <img src="https://picsum.photos/750/300?random">
+    {% endif %}
 <h1>{{ object.title }}</h1>
 <p> {{ object.content }}</p>
 

@@ -1,11 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+from markdownx.models import MarkdownxField
+from markdownx.utils import markdown
 
 # Create your models here.
 
 class Post(models.Model):
     title = models.CharField(max_length=30)
-    content = models.TextField()
+    content = MarkdownxField()
 
     head_image = models.ImageField(upload_to='swingpage/%Y/%m/%d/', blank=True)
 
@@ -16,11 +18,10 @@ class Post(models.Model):
         return '{}>>{}'.format(self.title, self.author)
 
     def get_absolute_url(self):
-        return '/swingpage/{}'.format(self.pk)
+        return '/swingpage/{}/'.format(self.pk)
 
-    def get_upgrade_url(self):
+    def get_update_url(self):
         return self.get_absolute_url() + 'update/'
 
-    #
-    # def get_markdown_content(self):
-    #     return markdown(self.content)
+    def get_markdown_content(self):
+        return markdown(self.content)

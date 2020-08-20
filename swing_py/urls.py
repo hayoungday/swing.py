@@ -25,6 +25,7 @@ urlpatterns = [
     path('login/', account.views.login, name='login'),
     path('signup/', account.views.signup, name='signup'),
     path('logout/', account.views.logout, name='logout'),
+    path('markdownx/', include('markdownx.urls')),
     ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
