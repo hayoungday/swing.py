@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -52,3 +52,13 @@ class PostCreate(CreateView):
             return super(type(self), self).form_valid(form)
         else:
             return redirect('/swingpage/')
+
+class PostDelete(DeleteView):
+    model = Post
+    success_url = reverse_lazy('homepage')
+
+    def get_object(self, queryset=None):
+        post = super(PostDelete, self).get_object()
+        if post.author != self.request.user:
+            raise PermissionError('no permission')
+        return post

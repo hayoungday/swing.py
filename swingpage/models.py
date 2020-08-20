@@ -25,3 +25,6 @@ class Post(models.Model):
 
     def get_markdown_content(self):
         return markdown(self.content)
+
+    def get_delete_url(self):
+        return self.get_absolute_url() + 'delete/'
