@@ -31,7 +31,7 @@ class PostDetail(DetailView):
 #
 #     return render(
 #         request,
-#         'swingpage/detail_post.html',
+#         'swingpage/post_detail.html',
 #         {
 #             'detail_post' : detail_post
 #         }
