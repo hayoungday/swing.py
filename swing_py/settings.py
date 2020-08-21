@@ -25,9 +25,8 @@ SECRET_KEY = '!knp7g5ia5+a&)^()+a=7z7s%fce14h0^l=*al7^u4ht^81+xj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['192.168.0.162']
-
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.162']
 
 # Application definition
 
@@ -127,3 +126,5 @@ MEDIA_URL = '/media/'
 
 from datetime import datetime
 MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/$m/%d')
+
+

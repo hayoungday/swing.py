@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import account.views
+import swingpage.views
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -25,6 +26,7 @@ urlpatterns = [
     path('login/', account.views.login, name='login'),
     path('signup/', account.views.signup, name='signup'),
     path('logout/', account.views.logout, name='logout'),
+    path('swingpage/index.html/', swingpage.views.blog),
     path('markdownx/', include('markdownx.urls')),
     ]
 

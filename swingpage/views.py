@@ -1,12 +1,23 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse, reverse_lazy
-
+from django.shortcuts import render
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-
+from django.urls import reverse, reverse_lazy
 
 
 # Create your views here.
+
+
+def index(request):
+    posts = Post.objects.all()
+
+    return render(
+        request,
+        'swingpage/index.html',
+        {
+            'posts' : posts,
+        }
+    )
+
 
 class PostList(ListView):
     model = Post
@@ -18,25 +29,6 @@ class PostList(ListView):
 
     def get_queryset(self):
         return Post.objects.order_by('-created')
-
-class PostDetail(DetailView):
-    model = Post
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(PostDetail, self).get_context_data(**kwargs)
-        return context
-
-class PostUpdate(UpdateView):
-    model = Post
-    fields = [
-        'title', 'content', 'head_image'
-    ]
-    # def form_valid(self, form):
-    #     form.save(commit=True)
-    #     return super(PostUpdate, self).form_valid(form)
-    # def get_context_data(self, **kwargs):
-    #     context = super(PostUpdate, self).get_context_data(**kwargs)
-    #     context['action'] = reverse('post-edit', kwargs={'pk':self.get_object().id})
-    #     return context
 
 
 class PostCreate(CreateView):
@@ -53,6 +45,18 @@ class PostCreate(CreateView):
         else:
             return redirect('/swingpage/')
 
+class PostDetail(DetailView):
+    model = Post
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(PostDetail, self).get_context_data(**kwargs)
+        return context
+
+class PostUpdate(UpdateView):
+    model = Post
+    fields = [
+        'title', 'content', 'head_image'
+    ]
+
 class PostDelete(DeleteView):
     model = Post
     success_url = reverse_lazy('homepage')
@@ -62,3 +66,6 @@ class PostDelete(DeleteView):
         if post.author != self.request.user:
             raise PermissionError('no permission')
         return post
+
+def blog(request):
+    return render(request, "swingpage/index.html", {})

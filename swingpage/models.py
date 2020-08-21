@@ -4,7 +4,6 @@ from markdownx.models import MarkdownxField
 from markdownx.utils import markdown
 
 # Create your models here.
-
 class Post(models.Model):
     title = models.CharField(max_length=30)
     content = MarkdownxField()
