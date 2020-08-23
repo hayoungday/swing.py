@@ -1,0 +1,14 @@
+setup.py
+swing.egg-info/PKG-INFO
+swing.egg-info/SOURCES.txt
+swing.egg-info/dependency_links.txt
+swing.egg-info/top_level.txt
+utils/__init__.py
+utils/crawl.py
+utils/scan.py
+utils/engine/__init__.py
+utils/engine/rule.py
+utils/engine/ruleset.py
+utils/parser/__init__.py
+utils/parser/analyzer.py
+utils/parser/getter.py

@@ -1,0 +1,86 @@
+[
+    {
+        "name" : "import : socket",
+        "Description" : "import : socket",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : ".*socket.*",
+                "type" : "regx",
+                "comment" : "import socket module"
+            }
+        ]
+    },
+    {
+        "name" : "import : platform",
+        "Description" : "import : platform",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : ".*platform.*",
+                "type" : "regx",
+                "comment" : "import platform module"
+            }
+        ]
+    },
+    {
+        "name" : "import : urllib2",
+        "Description" : "import : urllib2",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : ".*urllib2.*",
+                "type" : "regx",
+                "comment" : "import urllib2 module"
+            }
+        ]
+    },
+    {
+        "name" : "import : base64",
+        "Description" : "import : base64",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : ".*base64.*",
+                "type" : "regx",
+                "comment" : "import base64 module"
+            }
+        ]
+    },
+    {
+        "name" : "import : hashlib",
+        "Description" : "import : hashlib",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : ".*hashlib.*",
+                "type" : "regx",
+                "comment" : "import hashlib module"
+            }
+        ]
+    },
+    {
+        "name" : "import : getpass",
+        "Description" : "import : getpass",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : ".*getpass.*",
+                "type" : "regx",
+                "comment" : "import getpass module"
+            }
+        ]
+    },
+    {
+        "name" : "import : zlib",
+        "Description" : "import : zlib",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : ".*zlib.*",
+                "type" : "regx",
+                "comment" : "import zlib module"
+            }
+        ]
+    }
+]

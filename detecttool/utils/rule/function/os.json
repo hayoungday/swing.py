@@ -1,0 +1,86 @@
+[
+    {
+        "name" : "function : get hostname",
+        "Description" : "function : gethostname from socket module",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : "gethostname",
+                "type" : "string",
+                "comment" : "return hostname"
+            }
+        ]
+    },
+    {
+        "name" : "function : get networkname",
+        "Description" : "function : node from platform module",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : "platform.node.*",
+                "type" : "regx",
+                "comment" : "return network name"
+            }
+        ]
+    },
+    {
+        "name" : "function : get system information",
+        "Description" : "function : uname from platform module",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : ".*uname.*",
+                "type" : "regx",
+                "comment" : "return system information"
+            }
+        ]
+    },
+    {
+        "name" : "function : get username",
+        "Description" : "function : getuser from getpass module",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : "getuser",
+                "type" : "string",
+                "comment" : "return username"
+            }
+        ]
+    },
+    {
+        "name" : "function : get socket name",
+        "Description" : "function : getsockname from socket module",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : "getsockname",
+                "type" : "string",
+                "comment" : "return socket information"
+            }
+        ]
+    },
+    {
+        "name" : "function : get OS environment variables",
+        "Description" : "function : environ from os module",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : "os.environ.*",
+                "type" : "regx",
+                "comment" : "return os environment variables"
+            }
+        ]
+    },
+    {
+        "name" : "function : get password database",
+        "Description" : "function : getpwuid from pwd module",
+        "Severity" : "Moderate",
+        "expression":[
+            {
+                "expr" : "getpwuid",
+                "type" : "string",
+                "comment" : "return password database entry for the user id"
+            }
+        ]
+    }
+]

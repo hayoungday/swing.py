@@ -1,0 +1,78 @@
+[
+    {
+        "name" : "network Connetcion : HTTP",
+        "Description" : "network Connection : HTTP",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : "import .*(http|request)",
+                "type" : "regx",
+                "comment" : "Python HTTP libraries"
+            }
+        ]
+    },
+    {
+        "name" : "network Connetcion : HTTP",
+        "Description" : "network Connection : HTTP",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : "HTTPConnection",
+                "type" : "string",
+                "comment" : "python HTTP connection"
+            }
+        ]
+    },
+    {
+        "name" : "network Connetcion : HTTP",
+        "Description" : "network Connection : HTTP",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : "urlopen",
+                "type" : "string",
+                "comment" : "python HTTP connection "
+            }
+        ]
+    },
+    {
+        "name" : "network Connetcion : Socket",
+        "Description" : "network Connection : Socket",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : "socket",
+                "type" : "string",
+                "comment" : "Python SOCKET"
+            }
+        ]
+    },
+    {
+        "name" : "network Connetcion : Socket",
+        "Description" : "network Connection : Socket",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : ".*.connect.*",
+                "type" : "regx",
+                "comment" : "python socket connection"
+            }
+        ]
+    },
+    {
+        "name" : "network Connetcion : ssh",
+        "Description" : "network Connection : ssh",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : "ssh_client",
+                "type" : "string",
+                "comment" : "python SSH"
+            }
+        ]
+    }
+
+
+]
+
+
