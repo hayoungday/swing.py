@@ -3,7 +3,9 @@ from django.urls import reverse, reverse_lazy
 
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-
+import io
+from zipfile import ZipFile
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -18,6 +20,27 @@ class PostList(ListView):
 
     def get_queryset(self):
         return Post.objects.order_by('-created')
+
+    def download(request, company_id):
+        in_memory = io.StringIO()
+        zip = ZipFile(in_memory, "a")
+
+        zip.writestr("file1.txt", "some text contents")
+        zip.writestr("file2.csv", "csv,data,here")
+
+        # fix for Linux zip files read in Windows
+        for file in zip.filelist:
+            file.create_system = 0
+
+        zip.close()
+
+        response = HttpResponse(mimetype="application/zip")
+        response["Content-Disposition"] = "attachment; filename=two_files.zip"
+
+        in_memory.seek(0)
+        response.write(in_memory.read())
+
+        return response
 
 class PostDetail(DetailView):
     model = Post
@@ -62,3 +85,9 @@ class PostDelete(DeleteView):
         if post.author != self.request.user:
             raise PermissionError('no permission')
         return post
+
+
+
+
+
+

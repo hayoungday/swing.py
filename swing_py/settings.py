@@ -20,14 +20,13 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!knp7g5ia5+a&)^()+a=7z7s%fce14h0^l=*al7^u4ht^81+xj'
+SECRET_KEY = './secrets.json'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['192.168.0.162']
-
+#ALLOWED_HOSTS = ['192.168.0.162']
 
 # Application definition
 
@@ -127,3 +126,5 @@ MEDIA_URL = '/media/'
 
 from datetime import datetime
 MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/$m/%d')
+
+

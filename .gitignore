@@ -7,3 +7,5 @@ venv/
 db.sqlite3
 
 migrations/
+
+swing_py/secrets.json
