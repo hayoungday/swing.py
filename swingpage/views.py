@@ -1,14 +1,27 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse, reverse_lazy
-
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 import io
 from zipfile import ZipFile
 from django.http import HttpResponse
+from django.urls import reverse, reverse_lazy
+
 
 
 # Create your views here.
+
+
+def index(request):
+    posts = Post.objects.all()
+
+    return render(
+        request,
+        'swingpage/index.html',
+        {
+            'posts' : posts,
+        }
+    )
+
 
 class PostList(ListView):
     model = Post
@@ -61,7 +74,6 @@ class PostUpdate(UpdateView):
     #     context['action'] = reverse('post-edit', kwargs={'pk':self.get_object().id})
     #     return context
 
-
 class PostCreate(CreateView):
     model = Post
     fields = [
@@ -76,6 +88,18 @@ class PostCreate(CreateView):
         else:
             return redirect('/swingpage/')
 
+class PostDetail(DetailView):
+    model = Post
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(PostDetail, self).get_context_data(**kwargs)
+        return context
+
+class PostUpdate(UpdateView):
+    model = Post
+    fields = [
+        'title', 'content', 'head_image'
+    ]
+
 class PostDelete(DeleteView):
     model = Post
     success_url = reverse_lazy('homepage')
@@ -86,8 +110,6 @@ class PostDelete(DeleteView):
             raise PermissionError('no permission')
         return post
 
-
-
-
-
+def blog(request):
+    return render(request, "swingpage/index.html", {})
 

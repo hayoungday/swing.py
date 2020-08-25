@@ -1,0 +1,77 @@
+[
+    {
+        "name" : "crypto : base64 decode",
+        "Description" : "crypto : base64 decode",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : ".*[.]decode.'base64'.*",
+                "type" : "regx",
+                "comment" : "return decoded data from base64"
+            }
+        ]
+    },
+    {
+        "name" : "crypto : base64 decode",
+        "Description" : "crypto : base64 decode",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : ".*base64[.]b64decode.*.*",
+                "type" : "regx",
+                "comment" : "return decoded data from base64"
+            }
+        ]
+    },
+    {
+        "name" : "crypto : base16 decode",
+        "Description" : "crypto : base16 decode",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : ".*base64[.]b16decode.*.*",
+                "type" : "regx",
+                "comment" : "return decoded data from base16"
+            }
+        ]
+    },
+    {
+        "name" : "crypto : base64 encode",
+        "Description" : "crypto : base64 encode",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : ".*base64[.]encodestring.*",
+                "type" : "regx",
+                "comment" : "return base64-encoded data"
+            }
+        ]
+    },
+    {
+        "name" : "crypto : base64 encode",
+        "Description" : "crypto : base64 encode",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : ".*base64[.]b64encode.*",
+                "type" : "regx",
+                "comment" : "return base64-encoded data"
+            }
+        ]
+    },
+    {
+        "name" : "crypto : string digest",
+        "Description" : "crypto : string digest",
+        "Severity" : "moderate",
+        "expression":[
+            {
+                "expr" : ".*hexdigest.*",
+                "type" : "regx",
+                "comment" : "return hexadecimal encrypted string"
+            }
+        ]
+    }
+
+]
+
+
